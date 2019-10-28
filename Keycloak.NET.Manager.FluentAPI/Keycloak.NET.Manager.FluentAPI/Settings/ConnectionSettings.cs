@@ -7,5 +7,6 @@
         public string Url { get; set; }
         public string Realm { get; set; }
         public string ClientName { get; set; }
+        public string ClientSecret { get; set; }
     }
 }

@@ -44,6 +44,16 @@ namespace Keycloak.NET.FluentAPI.Builder
                 .Connect()
                 .Result as Context;
         }
+
+        RealmContext IClient.ToClientName(string clientName, string clientSecret)
+        {
+            _beingConstructed.ConnectionSettings.ClientName = clientName;
+            _beingConstructed.ConnectionSettings.ClientSecret = clientSecret;
+
+            return _beingConstructed
+                .Connect()
+                .Result as RealmContext;
+        }
     }
 
     public interface ILoginAs
@@ -65,5 +75,6 @@ namespace Keycloak.NET.FluentAPI.Builder
     public interface IClient
     {
         RealmContext ToClientName(string clientName);
+        RealmContext ToClientName(string clientName, string clientSecret);
     }
 }
