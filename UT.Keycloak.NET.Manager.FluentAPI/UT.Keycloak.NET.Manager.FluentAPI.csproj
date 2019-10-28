@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Keycloak.NET.FluentAPI\Keycloak.NET.FluentAPI\Keycloak.NET.FluentAPI.csproj" />
+    <ProjectReference Include="..\Keycloak.NET.Manager.FluentAPI\Keycloak.NET.Manager.FluentAPI\Keycloak.NET.Manager.FluentAPI.csproj" />
   </ItemGroup>
 
 </Project>

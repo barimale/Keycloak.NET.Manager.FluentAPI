@@ -9,3 +9,6 @@
 /UT.Keycloak.NET.FluentAPI/obj
 /Keycloak.NET.FluentAPI/Keycloak.NET.FluentAPI/Keycloak.NET.FluentAPI.csproj.user
 bin
+/Keycloak.NET.Manager.FluentAPI/.vs
+/Keycloak.NET.Manager.FluentAPI/Keycloak.NET.Manager.FluentAPI/obj
+/UT.Keycloak.NET.Manager.FluentAPI/obj
