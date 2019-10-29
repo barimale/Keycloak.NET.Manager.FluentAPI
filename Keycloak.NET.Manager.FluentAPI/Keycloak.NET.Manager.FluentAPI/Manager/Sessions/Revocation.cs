@@ -1,5 +1,5 @@
 ﻿using Keycloak.Net;
-using System;
+using Keycloak.Net.Models.Common;
 using System.Threading.Tasks;
 
 namespace Keycloak.NET.FluentAPI.Manage.Sessions
@@ -15,9 +15,9 @@ namespace Keycloak.NET.FluentAPI.Manage.Sessions
             _client = context.Client;
         }
 
-        public async Task<bool> SetToNowAndPushAsync()
+        public async Task<GlobalRequestResult> SetToNowAndPushAsync()
         {
-            throw new NotImplementedException();
+            return await _client.PushRealmRevocationPolicyAsync(_context.ConnectionSettings.Realm);
         }
     }
 }
