@@ -7,6 +7,7 @@ namespace Keycloak.NET.FluentAPI
 {
     public interface IRealmContext : IBaseContext
     {
+        string ClientId { get; }
         IConfigurator Configurator { get; }
         IManager Manager { get; }
         User UserDetails { get; }

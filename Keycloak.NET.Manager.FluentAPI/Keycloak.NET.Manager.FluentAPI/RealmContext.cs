@@ -21,6 +21,8 @@ namespace Keycloak.NET.FluentAPI
 
         public User UserDetails { get; private set; }
 
+        public string ClientId { get; private set; }
+
         internal override async Task<BaseContext> Connect()
         {
             try
@@ -28,7 +30,9 @@ namespace Keycloak.NET.FluentAPI
                 await base.Connect();
 
                 var users = await Client.GetUsersAsync(ConnectionSettings.Realm);
+                var clients = await Client.GetClientsAsync(ConnectionSettings.Realm);
 
+                ClientId = clients.FirstOrDefault(p => p.ClientId == ConnectionSettings.ClientName)?.Id;
                 UserDetails = users.FirstOrDefault(p => p.UserName == ConnectionSettings.Username);
             }
             catch (System.Exception ex)

@@ -2,10 +2,11 @@
 using Keycloak.NET.FluentAPI.Configure;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using UT.Keycloak.NET.FluentAPI;
 
-namespace UT.Keycloak.NET.FluentAPI.As_a_developer
+namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_In_Use
 {
-    public class When_Configuration_Is_In_Use
+    public class When_Context_Is_Created
     {
         private IRealmContext context;
 

@@ -1,5 +1,5 @@
 ﻿using Keycloak.Net;
-using Keycloak.Net.Models.Roles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +15,25 @@ namespace Keycloak.NET.FluentAPI.Configure
         {
             _context = context;
             _client = context.Client;
+        }
+
+        public async Task<bool> AddRoleAsync(string roleName)
+        {
+            try
+            {
+                return await _client.CreateRoleAsync(
+                    _context.ConnectionSettings.Realm,
+                    _context.ClientId,
+                    new Net.Models.Roles.Role()
+                    {
+                        Name = roleName,
+                        Composite = false
+                    });
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public async Task<List<Net.Models.Roles.Role>> AllAsync()

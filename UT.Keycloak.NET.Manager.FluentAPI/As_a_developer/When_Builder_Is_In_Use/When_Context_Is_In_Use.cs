@@ -1,7 +1,8 @@
 ﻿using Keycloak.NET.FluentAPI;
 using NUnit.Framework;
+using UT.Keycloak.NET.FluentAPI;
 
-namespace UT.Keycloak.NET.FluentAPI.As_a_developer
+namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Use
 {
     public class When_Context_Is_In_Use
     {
