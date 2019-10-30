@@ -17,6 +17,21 @@ namespace Keycloak.NET.FluentAPI.Configure
             _client = context.Client;
         }
 
+        public async Task<bool> DeleteRoleAsync(string roleName)
+        {
+            try
+            {
+                return await _client.DeleteRoleByNameAsync(
+                    _context.ConnectionSettings.Realm,
+                    _context.ClientId,
+                    roleName);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<bool> AddRoleAsync(string roleName)
         {
             try
@@ -30,7 +45,7 @@ namespace Keycloak.NET.FluentAPI.Configure
                         Composite = false
                     });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
