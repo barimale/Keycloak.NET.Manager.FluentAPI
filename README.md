@@ -15,10 +15,7 @@
 ```
 
 ## 2. Context capabilities: 
-### Fluent API's schema is determined as a reflection of Keycloak Administration Console website.
-
-### Example of the usage of logout method:
-
+### Fluent API's schema is determined as a reflection of Keycloak Administration Console website, for instance:
 ```
 	context.Manager.Sessions.RealmSessions.LogoutAllAsync()
 ```
