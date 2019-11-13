@@ -17,8 +17,9 @@
 ## 2. Context capabilities: 
 ### Fluent API's schema is determined as a reflection of the Keycloak Administration Console website, for instance:
 ```
-	context.Manager
-	.Sessions
-	.RealmSessions
-	.LogoutAllAsync()
+	var result = await allRealmsContext
+		.Manager
+		.Sessions
+		.RealmSessions
+		.LogoutAllAsync()
 ```
