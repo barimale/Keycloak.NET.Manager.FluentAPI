@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1F91979B-6EFF-4726-842B-B72A8B56D135}"
 	ProjectSection(SolutionItems) = preProject
 		pack.nuspec = pack.nuspec
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".workflows", ".workflows", "{808DA828-04AB-4B46-B18A-01E9399EEDA7}"

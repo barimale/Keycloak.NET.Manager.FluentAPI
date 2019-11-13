@@ -1,50 +1,24 @@
-# Keycloak.NET.Client.FluentAPI
-1. Context builder examples:
+# Keycloak.NET.Manager.FluentAPI
+## 1. Context builder examples:
 
 ```
-	var publicContext = Context.Create()
-		.Credentials(InputData.Username, InputData.Password)
-		.Url(InputData.Endpoint)
-		.Realm(InputData.Realm)
-		.OpenIdConnect()
-		.Public(InputData.ClientId);
+	var allRealmsContext = Context.Create()
+		.WithCredentials(InputData.Username, InputData.Password)
+		.Endpoint(InputData.Endpoint)
+		.AllRealms();
 
-	var confidentialContext = Context.Create()
-		.Credentials(InputData.Username, InputData.Password)
-		.Url(InputData.Endpoint)
-		.Realm(InputData.Realm)
-		.OpenIdConnect()
-		.Confidential(InputData.ClientId, InputData.ClientSecret);
-
-	var bearerOnlyContext = Context.Create()
-		.Credentials(InputData.Username, InputData.Password)
-		.Url(InputData.Endpoint)
-		.Realm(InputData.Realm)
-		.OpenIdConnect()
-		.BearerOnly(InputData.ClientId, InputData.ClientSecret);
+	var specificRealmContext = RealmContext.Create()
+        .WithCredentials(InputData.Username, InputData.Password)
+        .Endpoint(InputData.Endpoint)
+        .ToRealm(InputData.Realm)
+        .ToClientName(InputData.ClientId);
 ```
 
-2. Manager usage examples: 
+## 2. Context capabilities: 
+### Fluent API's schema is determined as a reflection of Keycloak Administration Console website.
+
+### Example of the usage of logout method:
+
 ```
-	//given manager
-	var service = new AuthorizationManager();
-
-	//and specific context
-	var publicContext = ...
-
-	//or
-	var confidentialContext = ...
-
-	//or
-	var bearerOnlyContext = ...
-
-	//when
-	var isAuthorized = await service
-		.Authorize(context);
-
-	//than
-	Assert.IsTrue(isAuthorized);
-	Assert.Greater(service.PriviligiesAsListOfNames().Count, 0);
-	Assert.Greater(service.PriviligiesAsListOfRoles().Count, 0);
-	Assert.NotNull(service.Token);
+	context.Manager.Sessions.RealmSessions.LogoutAllAsync()
 ```
