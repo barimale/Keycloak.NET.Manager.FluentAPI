@@ -12,5 +12,6 @@ namespace Keycloak.NET.FluentAPI.Manage
         ISession Sessions { get; }
         IPartialImport Import { get; }
         IPartialExport Export { get; }
+        IUsers Users { get; }
     }
 }

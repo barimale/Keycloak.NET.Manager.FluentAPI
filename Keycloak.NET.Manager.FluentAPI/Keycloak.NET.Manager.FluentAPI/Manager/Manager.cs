@@ -21,5 +21,6 @@ namespace Keycloak.NET.FluentAPI.Manage
         public ISession Sessions => new Session(_context);
         public IPartialImport Import => new PartialImport(_context);
         public IPartialExport Export => new PartialExport(_context);
+        public IUsers Users => new Users(_context);
     }
 }
