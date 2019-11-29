@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Keycloak.NET.FluentAPI.Model
+namespace Keycloak.NET.Manager.FluentAPI.Model
 {
     [JsonObject]
     public class ClientRoles

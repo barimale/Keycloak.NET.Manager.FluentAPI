@@ -16,7 +16,7 @@ namespace Keycloak.NET.FluentAPI
             //intentionally left blank
         }
 
-        public IManager Manager => new Manager(this);
+        public IManager Manager => new Manage.Manager(this);
         public IConfigurator Configurator => new Configurator(this);
 
         public User UserDetails { get; private set; }
