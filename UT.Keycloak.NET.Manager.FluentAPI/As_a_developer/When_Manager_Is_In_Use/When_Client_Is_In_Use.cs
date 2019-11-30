@@ -1,5 +1,6 @@
 ﻿using Keycloak.NET.FluentAPI;
 using NUnit.Framework;
+using System.Linq;
 using System.Threading.Tasks;
 using UT.Keycloak.NET.FluentAPI;
 
@@ -25,10 +26,10 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
 
             //when
             var result = await context.Configurator.Clients.GetDefaultClientRolesNamesAsync();
-
+            
             //than
             Assert.NotNull(result);
-            Assert.Greater(result.Count, 0);
+            Assert.Greater(result.ToList().Count, 0);
         }
     }
 }
