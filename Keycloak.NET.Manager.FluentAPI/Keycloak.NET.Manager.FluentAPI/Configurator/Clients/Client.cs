@@ -17,7 +17,7 @@ namespace Keycloak.NET.FluentAPI.Configure
             _client = context.Client;
         }
 
-        public async Task<IList<Net.Models.Roles.Role>> GetDefaultClientRolesNamesAsync()
+        public async Task<IEnumerable<Net.Models.Roles.Role>> GetDefaultClientRolesNamesAsync()
         {
             var client = await _client
                .GetClientsAsync(_context.ConnectionSettings.Realm, _context.ConnectionSettings.ClientName)
@@ -26,7 +26,7 @@ namespace Keycloak.NET.FluentAPI.Configure
             return await GetClientRolesNamesAsync(client.ToList().First().Id);
         }
 
-        public Task<IList<Net.Models.Roles.Role>> GetClientRolesNamesAsync(string clientId)
+        public Task<IEnumerable<Net.Models.Roles.Role>> GetClientRolesNamesAsync(string clientId)
         {
             return Extensions.GetRoleNamesAsync(
                  clientId,

@@ -38,7 +38,7 @@ namespace Keycloak.NET.Manager.FluentAPI.Keycloak.NET
                 .ConfigureRequest(settings => settings.JsonSerializer = s_serializer)
                 .WithAuthentication(getToken, url, authenticationRealm, userName, password);
 
-        public static Task<IList<Net.Models.Roles.Role>> GetRoleNamesAsync(
+        public static Task<IEnumerable<Net.Models.Roles.Role>> GetRoleNamesAsync(
             string clientId, 
             Func<string> getToken, 
             string url,
@@ -48,7 +48,7 @@ namespace Keycloak.NET.Manager.FluentAPI.Keycloak.NET
         {
             return GetBaseUrl(realm, getToken, url, realm, userName, password)
                     .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles")
-                    .GetJsonAsync<IList<Net.Models.Roles.Role>>();
+                    .GetJsonAsync<IEnumerable<Net.Models.Roles.Role>>();
         }
     }
 }
