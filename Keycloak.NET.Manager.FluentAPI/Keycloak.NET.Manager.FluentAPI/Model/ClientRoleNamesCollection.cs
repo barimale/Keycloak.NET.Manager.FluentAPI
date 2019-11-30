@@ -1,6 +1,6 @@
 ﻿namespace Keycloak.NET.Manager.FluentAPI.Model
 {
-    public class RealmRoles : BaseRoles
+    public class ClientRoleNamesCollection : BaseRoles
     {
         //intentionally left blank
     }
