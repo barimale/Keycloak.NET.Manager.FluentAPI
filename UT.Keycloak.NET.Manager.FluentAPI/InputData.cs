@@ -2,11 +2,12 @@
 {
     public static class InputData
     {
-        public static string Username = "superuser";
-        public static string Password = "demo";
+        public static string Username = "foo";
+        public static string Password = "bar";
         public static string Endpoint = "http://localhost:8080/";
         public static string Realm = "DEV";
-        public static string ClientId = "soundManager-WPF";
-        public static string ClientSecret = "5972fab4-4f59-4aab-967f-9f24f81f14c2";
+
+        public static string ClientId = "Confidential";
+        public static string ClientSecret = "8a03e418-bf2d-42a4-b9d1-7d8f1ed633d5";
     }
 }
