@@ -3,6 +3,7 @@ using Keycloak.NET.FluentAPI.Base;
 using Keycloak.NET.FluentAPI.Builder;
 using Keycloak.NET.FluentAPI.Configure;
 using Keycloak.NET.FluentAPI.Manage;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,9 +36,14 @@ namespace Keycloak.NET.FluentAPI
                 ClientId = clients.FirstOrDefault(p => p.ClientId == ConnectionSettings.ClientName)?.Id;
                 UserDetails = users.FirstOrDefault(p => p.UserName == ConnectionSettings.Username);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                System.Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                if (ClientId == null)
+                    throw new System.Exception("ClientId cannot be null.");
             }
 
             return this;

@@ -45,7 +45,7 @@ namespace Keycloak.NET.FluentAPI.Configure
                         Composite = false
                     });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

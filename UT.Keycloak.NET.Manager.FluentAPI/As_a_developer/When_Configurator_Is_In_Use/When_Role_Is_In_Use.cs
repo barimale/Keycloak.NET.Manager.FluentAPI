@@ -32,8 +32,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
         [OneTimeTearDown]
         public void CleanUp()
         {
-            //intentionally left blank DELETE NEW CLIENT
-            context.Client.DeleteClientAsync(InputData.Realm, context.ClientId);
+            context.Client.DeleteClientAsync(InputData.Realm, ClientName);
         }
 
         [Test]
