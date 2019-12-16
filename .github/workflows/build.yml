@@ -21,6 +21,9 @@ jobs:
     - name: Nuget Add apiKey 
       run: nuget setapikey ${{ secrets.NUGET_ORG_TOKEN }} -Source "https://api.nuget.org/v3/index.json"
 
+      -name x
+      run: nuget delete  Keycloak.NET.Desktop.Client.FluentAPI 1.2.1.1
+
     - name: Nuget Restore 
       run: nuget restore .\Keycloak.NET.Manager.FluentAPI\Keycloak.NET.Manager.FluentAPI.sln
 
