@@ -8,10 +8,10 @@
 		.AllRealms();
 
 	var specificRealmContext = RealmContext.Create()
-        	.WithCredentials(InputData.Username, InputData.Password)
-        	.Endpoint(InputData.Endpoint)
-        	.ToRealm(InputData.Realm)
-        	.ToClientName(InputData.ClientId);
+			.WithCredentials(InputData.Username, InputData.Password)
+			.Endpoint(InputData.Endpoint)
+			.ToRealm(InputData.Realm)
+			.ToClientName(InputData.ClientId);
 ```
 
 ## 2. Context capabilities: 
