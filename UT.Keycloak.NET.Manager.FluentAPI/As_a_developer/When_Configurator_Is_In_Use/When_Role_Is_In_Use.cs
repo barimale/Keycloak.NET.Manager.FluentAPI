@@ -18,32 +18,25 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
                 .WithCredentials(InputData.Username, InputData.Password)
                 .Endpoint(InputData.Endpoint)
                 .ToRealm(InputData.Realm)
-                .ToClientName(InputData.ClientId);
+                .ToClientName(InputData.ClientId, InputData.ClientSecret);
 
-            context.Client.CreateClientAsync(InputData.Realm, new global::Keycloak.Net.Models.Clients.Client()
-            {
-                ClientId = ClientName,
-                Protocol = "openId-connect"
-            });
-
-            //Add user to specific client
+            //context.Client.CreateClientAsync(InputData.Realm, new global::Keycloak.Net.Models.Clients.Client()
+            //{
+            //    ClientId = ClientName,
+            //    Protocol = "openId-connect"
+            //});
         }
 
         [OneTimeTearDown]
         public void CleanUp()
         {
-            context.Client.DeleteClientAsync(InputData.Realm, ClientName);
+            //context.Client.DeleteClientAsync(InputData.Realm, ClientName);
         }
 
         [Test]
         public async Task I_d_like_to_add_new_role_to_specific_client()
         {
             //given
-            var context = RealmContext.Create()
-                .WithCredentials(InputData.Username, InputData.Password)
-                .Endpoint(InputData.Endpoint)
-                .ToRealm(InputData.Realm)
-                .ToClientName(InputData.ClientId);
 
             //when
             var result = await context.Configurator.Roles.AddRoleAsync("dummy");
