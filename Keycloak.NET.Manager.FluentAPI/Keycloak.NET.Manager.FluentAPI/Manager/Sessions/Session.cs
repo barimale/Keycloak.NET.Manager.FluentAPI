@@ -1,4 +1,6 @@
-﻿namespace Keycloak.NET.FluentAPI.Manage.Sessions
+﻿using Keycloak.NET.Manager.FluentAPI;
+
+namespace Keycloak.NET.FluentAPI.Manage.Sessions
 {
     internal class Session : ISession
     {

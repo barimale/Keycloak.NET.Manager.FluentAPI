@@ -1,4 +1,6 @@
-﻿namespace Keycloak.NET.FluentAPI.Manage.Events
+﻿using Keycloak.NET.Manager.FluentAPI;
+
+namespace Keycloak.NET.FluentAPI.Manage.Events
 {
     internal class Event : IEvents
     {

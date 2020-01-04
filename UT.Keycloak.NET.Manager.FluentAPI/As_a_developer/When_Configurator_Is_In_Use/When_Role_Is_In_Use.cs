@@ -1,4 +1,4 @@
-﻿using Keycloak.NET.FluentAPI;
+﻿using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
 using System;
 using System.Threading.Tasks;

@@ -3,7 +3,7 @@ using Keycloak.NET.FluentAPI.Base;
 using Keycloak.NET.FluentAPI.Configure;
 using Keycloak.NET.FluentAPI.Manage;
 
-namespace Keycloak.NET.FluentAPI
+namespace Keycloak.NET.Manager.FluentAPI
 {
     public interface IRealmContext : IBaseContext
     {

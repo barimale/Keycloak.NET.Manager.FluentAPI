@@ -1,5 +1,6 @@
 ﻿using Keycloak.Net;
 using Keycloak.Net.Models.Users;
+using Keycloak.NET.Manager.FluentAPI;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

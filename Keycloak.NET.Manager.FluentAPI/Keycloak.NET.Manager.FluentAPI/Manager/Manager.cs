@@ -2,6 +2,7 @@
 using Keycloak.NET.FluentAPI.Manage.Export;
 using Keycloak.NET.FluentAPI.Manage.Import;
 using Keycloak.NET.FluentAPI.Manage.Sessions;
+using Keycloak.NET.Manager.FluentAPI;
 using Event = Keycloak.NET.FluentAPI.Manage.Events.Event;
 using PartialImport = Keycloak.NET.FluentAPI.Manage.Import.PartialImport;
 

@@ -1,4 +1,5 @@
 ﻿using Keycloak.NET.FluentAPI.Base;
+using Keycloak.NET.Manager.FluentAPI;
 
 namespace Keycloak.NET.FluentAPI.Builder
 {

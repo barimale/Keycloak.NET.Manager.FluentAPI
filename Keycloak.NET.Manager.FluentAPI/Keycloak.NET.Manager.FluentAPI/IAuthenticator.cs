@@ -1,6 +1,6 @@
 ﻿using Keycloak.Net.Models.Users;
 
-namespace Keycloak.NET.FluentAPI
+namespace Keycloak.NET.Manager.FluentAPI
 {
     public interface IAuthenticator
     {

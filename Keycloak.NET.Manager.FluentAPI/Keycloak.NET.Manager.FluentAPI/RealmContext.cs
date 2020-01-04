@@ -1,4 +1,5 @@
 ﻿using Keycloak.Net.Models.Users;
+using Keycloak.NET.FluentAPI;
 using Keycloak.NET.FluentAPI.Base;
 using Keycloak.NET.FluentAPI.Builder;
 using Keycloak.NET.FluentAPI.Configure;
@@ -7,7 +8,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Keycloak.NET.FluentAPI
+namespace Keycloak.NET.Manager.FluentAPI
 {
     public sealed class RealmContext : BaseContext, IRealmContext
     {
@@ -17,7 +18,7 @@ namespace Keycloak.NET.FluentAPI
             //intentionally left blank
         }
 
-        public IManager Manager => new Manage.Manager(this);
+        public IManager Manager => new NET.FluentAPI.Manage.Manager(this);
         public IConfigurator Configurator => new Configurator(this);
 
         public User UserDetails { get; private set; }
@@ -43,7 +44,7 @@ namespace Keycloak.NET.FluentAPI
             finally
             {
                 if (ClientId == null)
-                    throw new System.Exception("ClientId cannot be null.");
+                    throw new Exception("ClientId cannot be null.");
             }
 
             return this;

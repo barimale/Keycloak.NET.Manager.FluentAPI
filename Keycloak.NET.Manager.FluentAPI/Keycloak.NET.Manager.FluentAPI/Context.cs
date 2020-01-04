@@ -2,7 +2,7 @@
 using Keycloak.NET.FluentAPI.Builder;
 using Keycloak.NET.FluentAPI.Realms;
 
-namespace Keycloak.NET.FluentAPI
+namespace Keycloak.NET.Manager.FluentAPI
 {
     public sealed class Context : BaseContext
     {
@@ -12,7 +12,7 @@ namespace Keycloak.NET.FluentAPI
             //intentionally left blank
         }
 
-        public Realms.IRealm Realm => new Realm(this);
+        public NET.FluentAPI.Realms.IRealm Realm => new Realm(this);
 
         public static ILoginAs Create()
         {

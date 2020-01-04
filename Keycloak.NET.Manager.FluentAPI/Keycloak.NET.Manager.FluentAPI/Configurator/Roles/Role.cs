@@ -1,4 +1,5 @@
 ﻿using Keycloak.Net;
+using Keycloak.NET.Manager.FluentAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;

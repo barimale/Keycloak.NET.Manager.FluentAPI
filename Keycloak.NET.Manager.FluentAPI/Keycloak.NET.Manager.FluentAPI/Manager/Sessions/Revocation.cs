@@ -1,5 +1,6 @@
 ﻿using Keycloak.Net;
 using Keycloak.Net.Models.Common;
+using Keycloak.NET.Manager.FluentAPI;
 using System.Threading.Tasks;
 
 namespace Keycloak.NET.FluentAPI.Manage.Sessions

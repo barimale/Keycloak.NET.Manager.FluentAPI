@@ -1,5 +1,5 @@
-﻿using Keycloak.NET.FluentAPI;
-using Keycloak.NET.FluentAPI.Configure;
+﻿using Keycloak.NET.FluentAPI.Configure;
+using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
 using System.Threading.Tasks;
 using UT.Keycloak.NET.FluentAPI;

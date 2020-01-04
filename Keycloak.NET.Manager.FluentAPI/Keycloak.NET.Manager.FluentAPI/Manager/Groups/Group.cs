@@ -1,4 +1,5 @@
 ﻿using Keycloak.NET.FluentAPI.Manage.Groups;
+using Keycloak.NET.Manager.FluentAPI;
 
 namespace Keycloak.NET.FluentAPI.Manage
 {

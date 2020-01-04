@@ -1,5 +1,6 @@
 ﻿using Keycloak.Net;
 using Keycloak.Net.Models.RealmsAdmin;
+using Keycloak.NET.Manager.FluentAPI;
 using System.Threading.Tasks;
 
 namespace Keycloak.NET.FluentAPI.Manage.Events
