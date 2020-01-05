@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
-    <AssemblyVersion>0.0.10.0</AssemblyVersion>
-    <Version>0.0.10</Version>
-    <FileVersion>0.0.10.0</FileVersion>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <Version>0.1.0</Version>
+    <FileVersion>0.1.0.0</FileVersion>
     <Authors>barimale</Authors>
     <Description>Fluent API for Keycloak.NET package, determined as a reflection of the Keycloak Administration Console website.</Description>
     <PackageProjectUrl>https://github.com/barimale/Keycloak.NET.Manager.FluentAPI</PackageProjectUrl>
