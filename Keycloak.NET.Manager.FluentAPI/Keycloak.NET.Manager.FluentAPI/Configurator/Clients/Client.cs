@@ -38,7 +38,7 @@ namespace Keycloak.NET.FluentAPI.Configure
                 _context.ConnectionSettings.Password);
         }
 
-        public async Task<bool> Create(string clientId, Protocol protocolType, string endpoint = "")
+        public Task<bool> Create(string clientId, Protocol protocolType, string endpoint = "")
         {
             var client = new Net.Models.Clients.Client
             {
@@ -47,7 +47,7 @@ namespace Keycloak.NET.FluentAPI.Configure
                 BaseUrl = endpoint
             };
 
-            return await _client.CreateClientAsync(_context.ConnectionSettings.Realm, client);
+            return _client.CreateClientAsync(_context.ConnectionSettings.Realm, client);
         }
     }
 }
