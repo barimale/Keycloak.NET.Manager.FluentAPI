@@ -41,11 +41,6 @@ namespace Keycloak.NET.Manager.FluentAPI
             {
                 throw ex;
             }
-            finally
-            {
-                if (ClientId == null)
-                    throw new Exception("ClientId cannot be null.");
-            }
 
             return this;
         }
