@@ -8,5 +8,6 @@
         string Url { get; set; }
         string Username { get; set; }
         string ClientSecret { get; set; }
+        string Token { get; set; }
     }
 }

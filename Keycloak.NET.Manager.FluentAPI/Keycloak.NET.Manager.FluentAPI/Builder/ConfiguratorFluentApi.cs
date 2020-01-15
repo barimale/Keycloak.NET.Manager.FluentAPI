@@ -25,6 +25,12 @@ namespace Keycloak.NET.FluentAPI.Builder
             return this;
         }
 
+        IUrl ILoginAs.WithToken(string token)
+        {
+            _beingConstructed.ConnectionSettings.Token = token;
+            return this;
+        }
+
         IRealm IUrl.Endpoint(string url)
         {
             _beingConstructed.ConnectionSettings.Url = url;
@@ -60,6 +66,7 @@ namespace Keycloak.NET.FluentAPI.Builder
     public interface ILoginAs
     {
         IUrl WithCredentials(string username, string password);
+        IUrl WithToken(string token);
     }
 
     public interface IUrl

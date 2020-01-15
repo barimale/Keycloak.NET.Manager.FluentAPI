@@ -8,5 +8,6 @@
         public string Realm { get; set; }
         public string ClientName { get; set; }
         public string ClientSecret { get; set; }
+        public string Token { get; set; }
     }
 }

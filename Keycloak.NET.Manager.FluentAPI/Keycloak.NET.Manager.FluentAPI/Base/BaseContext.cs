@@ -14,10 +14,19 @@ namespace Keycloak.NET.FluentAPI.Base
         {
             try
             {
-                Client = new KeycloakClient(
+                if(string.IsNullOrEmpty(ConnectionSettings.Token))
+                {
+                    Client = new KeycloakClient(
                     ConnectionSettings.Url,
                     ConnectionSettings.Username,
                     ConnectionSettings.Password);
+                }
+                else
+                {
+                    Client = new KeycloakClient(
+                       ConnectionSettings.Url,
+                       () => { return ConnectionSettings.Token; });
+                }
             }
             catch (System.Exception ex)
             {
