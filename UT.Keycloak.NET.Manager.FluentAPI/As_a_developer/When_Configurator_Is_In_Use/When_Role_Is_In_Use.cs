@@ -45,7 +45,8 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
             Assert.IsTrue(result);
         }
 
-        public async Task I_d_like_to_add_remove_role_from_specific_client()
+        [Test]
+        public async Task I_d_like_to_remove_role_from_specific_client()
         {
             //given
             var context = RealmContext.Create()
