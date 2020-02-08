@@ -31,8 +31,8 @@ namespace Keycloak.NET.Manager.FluentAPI
             {
                 await base.Connect();
 
-                var users = await Client.GetUsersAsync(ConnectionSettings.Realm);
-                var clients = await Client.GetClientsAsync(ConnectionSettings.Realm);
+                var users = await Client.GetUsersAsync(ConnectionSettings.Realm).ConfigureAwait(false);
+                var clients = await Client.GetClientsAsync(ConnectionSettings.Realm).ConfigureAwait(false);
 
                 ClientId = clients.FirstOrDefault(p => p.ClientId == ConnectionSettings.ClientName)?.Id;
                 UserDetails = users.FirstOrDefault(p => p.UserName == ConnectionSettings.Username);
