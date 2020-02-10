@@ -39,7 +39,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
             //given
 
             //when
-            var result = await context.Configurator.Roles.AddRoleAsync("dummy");
+            var result = await context.Configurator.Roles.AddRoleAsync(Guid.NewGuid().ToString("n"));
 
             //than
             Assert.IsTrue(result);

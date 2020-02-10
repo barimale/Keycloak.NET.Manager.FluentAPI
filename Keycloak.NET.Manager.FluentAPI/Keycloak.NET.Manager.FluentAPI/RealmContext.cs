@@ -4,9 +4,7 @@ using Keycloak.NET.FluentAPI.Base;
 using Keycloak.NET.FluentAPI.Builder;
 using Keycloak.NET.FluentAPI.Configure;
 using Keycloak.NET.FluentAPI.Manage;
-using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Keycloak.NET.Manager.FluentAPI
 {
@@ -21,35 +19,49 @@ namespace Keycloak.NET.Manager.FluentAPI
         public IManager Manager => new NET.FluentAPI.Manage.Manager(this);
         public IConfigurator Configurator => new Configurator(this);
 
-        public User UserDetails { get; private set; }
-
-        public string ClientId { get; private set; }
-
-        internal override async Task<BaseContext> Connect()
+        private User userDetails;
+        public User UserDetails
         {
-            try
+            get
             {
-                await base.Connect();
+                if (userDetails == null)
+                {
+                    var users = Client.GetUsersAsync(ConnectionSettings.Realm).Result;
+                    userDetails = users.FirstOrDefault(p => p.UserName == ConnectionSettings.Username);
+                }
 
-                var users = await Client.GetUsersAsync(ConnectionSettings.Realm).ConfigureAwait(false);
-                var clients = await Client.GetClientsAsync(ConnectionSettings.Realm).ConfigureAwait(false);
-
-                ClientId = clients.FirstOrDefault(p => p.ClientId == ConnectionSettings.ClientName)?.Id;
-                UserDetails = users.FirstOrDefault(p => p.UserName == ConnectionSettings.Username);
+                return userDetails;
             }
-            catch (Exception ex)
+            private set
             {
-                throw ex;
+                if (value != userDetails)
+                {
+                    userDetails = value;
+                }
             }
-            finally
-            {
-                if (ClientId == null)
-                    throw new ArgumentNullException("ClientId");
-                if (UserDetails == null)
-                    throw new ArgumentNullException("UserDetails");
-            }
+        }
 
-            return this;
+        private string clientId;
+
+        public string ClientId
+        { 
+            get
+            {
+                if(clientId == null)
+                {
+                    var clients = Client.GetClientsAsync(ConnectionSettings.Realm).Result;
+                    clientId = clients.FirstOrDefault(p => p.ClientId == ConnectionSettings.ClientName)?.Id;
+                }
+
+                return clientId;
+            }
+            private set
+            {
+                if(value != clientId)
+                {
+                    clientId = value;
+                }
+            }
         }
 
         public static ILoginAs Create()

@@ -15,6 +15,7 @@ namespace Keycloak.NET.FluentAPI
         public IClients Clients => new Client(_context);
         public IClientScopes ClientScopes => new ClientScope(_context);
         public IRoles Roles => new Role(_context);
+
         public IIdentityProviders IdentityProviders => throw new System.NotImplementedException();
         public IRealmSettings RealmSettings => throw new System.NotImplementedException();
         public IUserFederation UserFederation => throw new System.NotImplementedException();
