@@ -33,6 +33,21 @@ namespace Keycloak.NET.FluentAPI.Configure
             }
         }
 
+        public async Task<bool> DeleteRoleAsync(string roleName, string clientId)
+        {
+            try
+            {
+                return await _client.DeleteRoleByNameAsync(
+                    _context.ConnectionSettings.Realm,
+                    clientId,
+                    roleName);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<bool> AddRoleAsync(string roleName)
         {
             try
