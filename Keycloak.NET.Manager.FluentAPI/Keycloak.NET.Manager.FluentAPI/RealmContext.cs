@@ -26,7 +26,7 @@ namespace Keycloak.NET.Manager.FluentAPI
             {
                 if (userDetails == null)
                 {
-                    var users = Client.GetUsersAsync(ConnectionSettings.Realm).Result;
+                    var users = Client.GetUsersAsync(ConnectionSettings.Realm).GetAwaiter().GetResult();
                     userDetails = users.FirstOrDefault(p => p.UserName == ConnectionSettings.Username);
                 }
 
@@ -49,7 +49,7 @@ namespace Keycloak.NET.Manager.FluentAPI
             {
                 if(clientId == null)
                 {
-                    var clients = Client.GetClientsAsync(ConnectionSettings.Realm).Result;
+                    var clients = Client.GetClientsAsync(ConnectionSettings.Realm).GetAwaiter().GetResult();
                     clientId = clients.FirstOrDefault(p => p.ClientId == ConnectionSettings.ClientName)?.Id;
                 }
 

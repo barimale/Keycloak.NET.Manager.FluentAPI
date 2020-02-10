@@ -7,6 +7,7 @@ namespace Keycloak.NET.FluentAPI.Configure
     {
         Task<bool> DeleteRoleAsync(string roleName);
         Task<bool> AddRoleAsync(string roleName);
+        Task<bool> AddRoleAsync(string roleName, string clientId);
         Task<List<Net.Models.Roles.Role>> AllAsync();
     }
 }

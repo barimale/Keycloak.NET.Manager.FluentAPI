@@ -52,6 +52,25 @@ namespace Keycloak.NET.FluentAPI.Configure
             }
         }
 
+        public async Task<bool> AddRoleAsync(string roleName, string clientId)
+        {
+            try
+            {
+                return await _client.CreateRoleAsync(
+                    _context.ConnectionSettings.Realm,
+                    clientId,
+                    new Net.Models.Roles.Role()
+                    {
+                        Name = roleName,
+                        Composite = false
+                    });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<List<Net.Models.Roles.Role>> AllAsync()
         {
             try
