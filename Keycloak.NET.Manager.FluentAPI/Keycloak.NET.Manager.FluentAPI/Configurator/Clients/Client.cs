@@ -51,13 +51,13 @@ namespace Keycloak.NET.FluentAPI.Configure
             return _client.CreateClientAsync(_context.ConnectionSettings.Realm, client);
         }
 
-        public Task<IEnumerable<Net.Models.Roles.Role>> GetClientRoleMappingsForUserAsync()
+        public Task<IEnumerable<Net.Models.Roles.Role>> GetClientRoleMappingsForUserAsync(string userId)
         {
             try
             {
                 return _context.Client.GetClientRoleMappingsForUserAsync(
                     _context.ConnectionSettings.Realm,
-                    _context.UserDetails.Id,
+                    userId,
                     _context.ClientId);
             }
             catch (Exception ex)
@@ -66,13 +66,28 @@ namespace Keycloak.NET.FluentAPI.Configure
             }
         }
 
-        public async Task<bool> AddClientRoleMappingsForUserAsync(string roleName)
+        public async Task<IEnumerable<Net.Models.Roles.Role>> GetAvailableClientRoleMappingsForUserAsync(string userId)
+        {
+            try
+            {
+                return await _context.Client.GetAvailableClientRoleMappingsForUserAsync(
+                    _context.ConnectionSettings.Realm,
+                    userId,
+                    _context.ClientId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> AddClientRoleMappingsForUserAsync(string roleName, string userId)
         {
             try
             {
                 var avaliableRoles = await _context.Client.GetAvailableClientRoleMappingsForUserAsync(
                     _context.ConnectionSettings.Realm,
-                    _context.UserDetails.Id,
+                    userId,
                     _context.ClientId);
 
                 var roleToAdd = avaliableRoles.FirstOrDefault(p => p.Name == roleName);
@@ -82,7 +97,7 @@ namespace Keycloak.NET.FluentAPI.Configure
 
                 return await _context.Client.AddClientRoleMappingsToUserAsync(
                     _context.ConnectionSettings.Realm,
-                    _context.UserDetails.Id,
+                    userId,
                     _context.ClientId,
                     new List<Net.Models.Roles.Role>()
                     { 
@@ -93,6 +108,18 @@ namespace Keycloak.NET.FluentAPI.Configure
             {
                 throw ex;
             }
+        }
+
+        public async Task<bool> DeleteClientRoleMappingsForUserAsync(string roleName, string userId)
+        {
+            var rolesToRemove = await GetClientRoleMappingsForUserAsync(userId);
+            var result = rolesToRemove.Where(p => p.Name == roleName).ToList();
+
+            return await _context.Client.DeleteClientRoleMappingsFromUserAsync(
+                    _context.ConnectionSettings.Realm,
+                    userId,
+                    _context.ClientId,
+                    result);
         }
     }
 }

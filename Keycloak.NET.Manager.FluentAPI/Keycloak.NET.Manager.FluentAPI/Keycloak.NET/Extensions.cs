@@ -39,7 +39,7 @@ namespace Keycloak.NET.Manager.FluentAPI.Keycloak.NET
                 .WithAuthentication(getToken, url, authenticationRealm, userName, password);
 
         public static Task<IEnumerable<Net.Models.Roles.Role>> GetRoleNamesAsync(
-            string clientId, 
+            string clientId,
             Func<string> getToken, 
             string url,
             string realm, 
