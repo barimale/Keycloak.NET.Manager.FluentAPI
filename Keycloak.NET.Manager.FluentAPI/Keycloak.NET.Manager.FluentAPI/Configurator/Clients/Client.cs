@@ -1,6 +1,7 @@
 ﻿using Keycloak.Net;
 using Keycloak.NET.Manager.FluentAPI;
 using Keycloak.NET.Manager.FluentAPI.Keycloak.NET;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,6 +49,50 @@ namespace Keycloak.NET.FluentAPI.Configure
             };
 
             return _client.CreateClientAsync(_context.ConnectionSettings.Realm, client);
+        }
+
+        public Task<IEnumerable<Net.Models.Roles.Role>> GetClientRoleMappingsForUserAsync()
+        {
+            try
+            {
+                return _context.Client.GetClientRoleMappingsForUserAsync(
+                    _context.ConnectionSettings.Realm,
+                    _context.UserDetails.Id,
+                    _context.ClientId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> AddClientRoleMappingsForUserAsync(string roleName)
+        {
+            try
+            {
+                var avaliableRoles = await _context.Client.GetAvailableClientRoleMappingsForUserAsync(
+                    _context.ConnectionSettings.Realm,
+                    _context.UserDetails.Id,
+                    _context.ClientId);
+
+                var roleToAdd = avaliableRoles.FirstOrDefault(p => p.Name == roleName);
+
+                if (roleToAdd == null)
+                    throw new ArgumentNullException("roleToAdd");
+
+                return await _context.Client.AddClientRoleMappingsToUserAsync(
+                    _context.ConnectionSettings.Realm,
+                    _context.UserDetails.Id,
+                    _context.ClientId,
+                    new List<Net.Models.Roles.Role>()
+                    { 
+                        roleToAdd
+                    });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

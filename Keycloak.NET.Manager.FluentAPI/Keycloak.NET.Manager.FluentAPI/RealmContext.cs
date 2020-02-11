@@ -27,7 +27,7 @@ namespace Keycloak.NET.Manager.FluentAPI
                 if (userDetails == null)
                 {
                     var users = Client.GetUsersAsync(ConnectionSettings.Realm).GetAwaiter().GetResult();
-                    userDetails = users.FirstOrDefault(p => p.UserName == ConnectionSettings.Username);
+                    return users.FirstOrDefault(p => p.UserName == ConnectionSettings.Username);
                 }
 
                 return userDetails;
@@ -55,7 +55,7 @@ namespace Keycloak.NET.Manager.FluentAPI
 
                 return clientId;
             }
-            private set
+            set
             {
                 if(value != clientId)
                 {
