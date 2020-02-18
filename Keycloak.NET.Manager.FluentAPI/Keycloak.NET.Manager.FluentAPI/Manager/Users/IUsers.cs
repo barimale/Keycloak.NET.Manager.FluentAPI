@@ -9,6 +9,8 @@ namespace Keycloak.NET.FluentAPI.Manage.Sessions
         Task<IEnumerable<User>> ViewAllUsersAsync();
         Task<bool> UnlockUsersAsync();
         Task<bool> AddUserAsync(User user);
+        Task<bool> UpdateUserAsync(User user);
         Task<User> GetUserAsync(string userId);
+        Task<bool> DeleteUserAsync(string userId);
     }
 }

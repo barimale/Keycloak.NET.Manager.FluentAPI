@@ -36,5 +36,15 @@ namespace Keycloak.NET.FluentAPI.Manage.Sessions
         {
             return _client.GetUserAsync(_context.ConnectionSettings.Realm, userId);
         }
+
+        public Task<bool> UpdateUserAsync(User user)
+        {
+            return _client.UpdateUserAsync(_context.ConnectionSettings.Realm, user.Id, user);
+        }
+
+        public Task<bool> DeleteUserAsync(string userId)
+        {
+            return _client.DeleteUserAsync(_context.ConnectionSettings.Realm, userId);
+        }
     }
 }
