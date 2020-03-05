@@ -1,6 +1,7 @@
 ﻿using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using UT.Keycloak.NET.FluentAPI;
 
@@ -63,6 +64,26 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
 
             //than
             Assert.IsTrue(result);
+        }
+
+        [Test]
+        public async Task I_d_like_to_get_role_by_Id()
+        {
+            //given
+            var context = RealmContext.Create()
+                .WithCredentials(InputData.Username, InputData.Password)
+                .Endpoint(InputData.Endpoint)
+                .ToRealm(InputData.Realm)
+                .ToClientName(InputData.ClientId, InputData.ClientSecret);
+
+            var allOfThem = await context.Configurator.Roles.AllAsync();
+            var newOne = allOfThem.First();
+
+            //when
+            var result = context.Configurator.Roles.GetRoleById(newOne.Id);
+
+            //than
+            Assert.IsNotNull(result);
         }
     }
 }

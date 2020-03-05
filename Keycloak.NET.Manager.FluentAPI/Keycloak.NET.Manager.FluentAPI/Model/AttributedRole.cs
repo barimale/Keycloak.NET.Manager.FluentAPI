@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Keycloak.NET.Client.FluentAPI.Model
+namespace Keycloak.NET.Manager.FluentAPI.Model
 {
     [JsonObject]
-    public class AtributedRole
+    public class AttributedRole
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -17,6 +17,6 @@ namespace Keycloak.NET.Client.FluentAPI.Model
         [JsonProperty("containerId")]
         public string ContainerId { get; set; }
         [JsonProperty("attributes")]
-        public Dictionary<string,string> Attributes { get; set; }
+        public Dictionary<string, string> Attributes { get; set; }
     }
 }

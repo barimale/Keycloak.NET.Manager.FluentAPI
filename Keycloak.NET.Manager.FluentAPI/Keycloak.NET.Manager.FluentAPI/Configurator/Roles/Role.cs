@@ -1,5 +1,6 @@
 ﻿using Keycloak.Net;
 using Keycloak.NET.Manager.FluentAPI;
+using Keycloak.NET.Manager.FluentAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -106,10 +107,32 @@ namespace Keycloak.NET.FluentAPI.Configure
 
                 return clientEntitlements.Concat(realmEntitlements).ToList();
             }
-            catch (System.Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
+        }
+
+        public AttributedRole GetRoleById(string id)
+        {
+            try
+            {
+                return Extensions.Helper.GetRoleByNameAsync(
+                    _context.ClientId,
+                    () => {
+                        return _context.ConnectionSettings.Token;
+                    },
+                    _context.ConnectionSettings.Url,
+                    _context.ConnectionSettings.Realm,
+                    _context.ConnectionSettings.Username,
+                    _context.ConnectionSettings.Password,
+                    id).Result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Keycloak.Net;
 using Keycloak.NET.Manager.FluentAPI;
-using Keycloak.NET.Manager.FluentAPI.Keycloak.NET;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,9 +29,10 @@ namespace Keycloak.NET.FluentAPI.Configure
 
         public Task<IEnumerable<Net.Models.Roles.Role>> GetClientRolesNamesAsync(string clientId)
         {
-            return Extensions.GetRoleNamesAsync(
+            return Extensions.Helper.GetRoleNamesAsync(
                  clientId,
-                 null,
+                  () => {
+                      return _context.ConnectionSettings.Token;},
                 _context.ConnectionSettings.Url,
                 _context.ConnectionSettings.Realm,
                 _context.ConnectionSettings.Username,

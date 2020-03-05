@@ -2,15 +2,17 @@
 using Flurl.Http;
 using Flurl.Http.Configuration;
 using Keycloak.Net.Common.Extensions;
+using Keycloak.Net.Models.Roles;
+using Keycloak.NET.Manager.FluentAPI.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Keycloak.NET.Manager.FluentAPI.Keycloak.NET
+namespace Extensions
 {
-    public static class Extensions
+    public static class Helper
     {
         private static readonly ISerializer s_serializer = new NewtonsoftJsonSerializer(new JsonSerializerSettings
         {
@@ -18,7 +20,7 @@ namespace Keycloak.NET.Manager.FluentAPI.Keycloak.NET
             NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore
         });
 
-        static Extensions()
+        static Helper()
         {
             JsonConvert.DefaultSettings = () => new JsonSerializerSettings
             {
@@ -38,17 +40,33 @@ namespace Keycloak.NET.Manager.FluentAPI.Keycloak.NET
                 .ConfigureRequest(settings => settings.JsonSerializer = s_serializer)
                 .WithAuthentication(getToken, url, authenticationRealm, userName, password);
 
-        public static Task<IEnumerable<Net.Models.Roles.Role>> GetRoleNamesAsync(
+        public static Task<IEnumerable<Role>> GetRoleNamesAsync(
             string clientId,
-            Func<string> getToken, 
+            Func<string> getToken,
             string url,
-            string realm, 
-            string userName, 
+            string realm,
+            string userName,
             string password)
         {
             return GetBaseUrl(realm, getToken, url, realm, userName, password)
                     .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles")
-                    .GetJsonAsync<IEnumerable<Net.Models.Roles.Role>>();
+                    .GetJsonAsync<IEnumerable<Role>>();
+        }
+
+        public static async Task<AttributedRole> GetRoleByNameAsync(
+            string clientId,
+            Func<string> getToken,
+            string url,
+            string realm,
+            string userName,
+            string password,
+            string roleName)
+        {
+            return await GetBaseUrl(realm, getToken, url, realm, userName, password)
+                            .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}")
+                            //.AppendPathSegment($"/admin/realms/{realm}/roles-by-id/{roleId}")
+                            .GetJsonAsync<AttributedRole>()
+                            .ConfigureAwait(false);
         }
     }
 }
