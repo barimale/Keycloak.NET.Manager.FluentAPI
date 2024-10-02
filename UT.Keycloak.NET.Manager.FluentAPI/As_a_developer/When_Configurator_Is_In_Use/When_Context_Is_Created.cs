@@ -1,6 +1,7 @@
 ﻿using Keycloak.NET.FluentAPI.Configure;
 using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Threading.Tasks;
 using UT.Keycloak.NET.FluentAPI;
@@ -34,17 +35,17 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
                     .ToClientName(InputData.ClientId);
 
             //than
-            Assert.NotNull(context);
-            Assert.NotNull(context.ConnectionSettings.ClientName);
-            Assert.Null(context.ConnectionSettings.Password);
-            Assert.Null(context.ConnectionSettings.Username);
-            Assert.NotNull(context.ConnectionSettings.Token);
+            ClassicAssert.NotNull(context);
+            ClassicAssert.NotNull(context.ConnectionSettings.ClientName);
+            ClassicAssert.Null(context.ConnectionSettings.Password);
+            ClassicAssert.Null(context.ConnectionSettings.Username);
+            ClassicAssert.NotNull(context.ConnectionSettings.Token);
         }
 
         [Test]
         public void I_d_like_to_cannot_create_client_with_insufficient_priviligies()
         {
-            Assert.ThrowsAsync<Flurl.Http.FlurlHttpException>(async () => CreateClientWithUnsofficientPriviligies());
+            ClassicAssert.ThrowsAsync<Flurl.Http.FlurlHttpException>(async () => CreateClientWithUnsofficientPriviligies());
         }
 
         private async Task CreateClientWithUnsofficientPriviligies()

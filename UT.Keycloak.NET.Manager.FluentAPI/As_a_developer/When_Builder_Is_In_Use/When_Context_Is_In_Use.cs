@@ -1,5 +1,6 @@
 ﻿using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using UT.Keycloak.NET.FluentAPI;
 
 namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Use
@@ -24,7 +25,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
                 .AllRealms();
 
             //than
-            Assert.NotNull(context);
+            ClassicAssert.NotNull(context);
         }
 
         [Test]
@@ -40,7 +41,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
             var realm = context.Realm;
 
             //than
-            Assert.NotNull(realm);
+            ClassicAssert.NotNull(realm);
         }
     }
 }

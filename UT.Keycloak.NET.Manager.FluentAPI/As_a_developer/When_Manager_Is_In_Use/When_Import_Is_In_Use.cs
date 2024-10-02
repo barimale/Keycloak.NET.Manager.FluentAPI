@@ -1,5 +1,6 @@
 ﻿using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             var result = await context.Manager.Import.ImportAsync(realm);
 
             //than
-            Assert.IsTrue(result);
+            ClassicAssert.IsTrue(result);
         }
 
         [Test]
@@ -51,7 +52,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             var result = await context.Manager.Import.ImportAsync(inputFile);
 
             //than
-            Assert.IsTrue(result);
+            ClassicAssert.IsTrue(result);
         }
     }
 }

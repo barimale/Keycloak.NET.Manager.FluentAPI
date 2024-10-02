@@ -1,5 +1,6 @@
 ﻿using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System.Threading.Tasks;
 using UT.Keycloak.NET.FluentAPI;
 
@@ -27,7 +28,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             var result = await context.Manager.Sessions.RealmSessions.LogoutAllAsync();
 
             //than
-            Assert.IsTrue(result);
+            ClassicAssert.IsTrue(result);
         }
 
         [Test]
@@ -44,7 +45,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             var result = await context.Manager.Sessions.Revocation.SetToNowAndPushAsync();
 
             //than
-            Assert.NotNull(result);
+            ClassicAssert.NotNull(result);
         }
     }
 }

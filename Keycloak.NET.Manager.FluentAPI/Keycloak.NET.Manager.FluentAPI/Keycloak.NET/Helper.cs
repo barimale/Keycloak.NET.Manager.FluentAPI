@@ -35,10 +35,11 @@ namespace Extensions
             string url,
             string realm,
             string userName,
-            string password) => new Url(url)
+            string password,
+            string clientSecret) => new Url(url)
                 .AppendPathSegment("/auth")
                 .ConfigureRequest(settings => settings.JsonSerializer = s_serializer)
-                .WithAuthentication(getToken, url, authenticationRealm, userName, password);
+                .WithAuthentication(getToken, url, authenticationRealm, userName, password, clientSecret);
 
         public static Task<IEnumerable<Role>> GetRoleNamesAsync(
             string clientId,
@@ -46,9 +47,10 @@ namespace Extensions
             string url,
             string realm,
             string userName,
-            string password)
+            string password,
+            string clientSecret)
         {
-            return GetBaseUrl(realm, getToken, url, realm, userName, password)
+            return GetBaseUrl(realm, getToken, url, realm, userName, password, clientSecret)
                     .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles")
                     .GetJsonAsync<IEnumerable<Role>>();
         }
@@ -60,9 +62,10 @@ namespace Extensions
             string realm,
             string userName,
             string password,
-            string roleName)
+            string roleName,
+            string clientSecret)
         {
-            return await GetBaseUrl(realm, getToken, url, realm, userName, password)
+            return await GetBaseUrl(realm, getToken, url, realm, userName, password, clientSecret)
                             .AppendPathSegment($"/admin/realms/{realm}/clients/{clientId}/roles/{roleName}")
                             //.AppendPathSegment($"/admin/realms/{realm}/roles-by-id/{roleId}")
                             .GetJsonAsync<AttributedRole>()

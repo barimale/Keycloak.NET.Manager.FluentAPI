@@ -1,5 +1,6 @@
 ﻿using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,12 +21,6 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
                 .Endpoint(InputData.Endpoint)
                 .ToRealm(InputData.Realm)
                 .ToClientName(InputData.ClientId, InputData.ClientSecret);
-
-            //context.Client.CreateClientAsync(InputData.Realm, new global::Keycloak.Net.Models.Clients.Client()
-            //{
-            //    ClientId = ClientName,
-            //    Protocol = "openId-connect"
-            //});
         }
 
         [OneTimeTearDown]
@@ -43,7 +38,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
             var result = await context.Configurator.Roles.AddRoleAsync(Guid.NewGuid().ToString("n"));
 
             //than
-            Assert.IsTrue(result);
+            ClassicAssert.IsTrue(result);
         }
 
         [Test]
@@ -63,7 +58,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
             var result = await context.Configurator.Roles.DeleteRoleAsync(newName);
 
             //than
-            Assert.IsTrue(result);
+            ClassicAssert.IsTrue(result);
         }
 
         [Test]
@@ -83,7 +78,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
             var result = context.Configurator.Roles.GetRoleById(newOne.Id);
 
             //than
-            Assert.IsNotNull(result);
+            ClassicAssert.IsNotNull(result);
         }
     }
 }

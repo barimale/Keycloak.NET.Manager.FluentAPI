@@ -36,7 +36,8 @@ namespace Keycloak.NET.FluentAPI.Configure
                 _context.ConnectionSettings.Url,
                 _context.ConnectionSettings.Realm,
                 _context.ConnectionSettings.Username,
-                _context.ConnectionSettings.Password);
+                _context.ConnectionSettings.Password,
+                _context.ConnectionSettings.ClientSecret);
         }
 
         public Task<bool> Create(string clientId, Protocol protocolType, string endpoint = "")

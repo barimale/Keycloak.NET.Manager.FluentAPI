@@ -126,7 +126,8 @@ namespace Keycloak.NET.FluentAPI.Configure
                     _context.ConnectionSettings.Realm,
                     _context.ConnectionSettings.Username,
                     _context.ConnectionSettings.Password,
-                    id).Result;
+                    id,
+                    _context.ConnectionSettings.ClientSecret).Result;
             }
             catch (Exception ex)
             {

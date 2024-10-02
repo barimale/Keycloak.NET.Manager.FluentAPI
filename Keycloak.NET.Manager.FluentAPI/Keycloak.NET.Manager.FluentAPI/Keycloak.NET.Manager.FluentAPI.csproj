@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
-    <AssemblyVersion>0.11.0.0</AssemblyVersion>
-    <Version>0.11.0</Version>
-    <FileVersion>0.11.0.0</FileVersion>
+    <TargetFrameworks>netstandard2.0;net47;net8.0</TargetFrameworks>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Version>1.0.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
     <Authors>barimale</Authors>
     <Description>Fluent API for Keycloak.NET package, determined as a reflection of the Keycloak Administration Console website.</Description>
     <PackageProjectUrl>https://github.com/barimale/Keycloak.NET.Manager.FluentAPI</PackageProjectUrl>
@@ -13,11 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Keycloak.Net" Version="1.0.8" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Keycloak.Net" Version="1.0.18" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.6.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PrivateObjectHelper" Version="1.0.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.1.0" />
   </ItemGroup>
 
 </Project>

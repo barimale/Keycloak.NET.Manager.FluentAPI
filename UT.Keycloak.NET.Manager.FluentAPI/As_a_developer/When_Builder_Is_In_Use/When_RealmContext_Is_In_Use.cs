@@ -1,5 +1,6 @@
 ﻿using Keycloak.NET.Manager.FluentAPI;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using UT.Keycloak.NET.FluentAPI;
 
 namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Use
@@ -25,7 +26,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
                 .ToClientName(InputData.ClientId);
 
             //than
-            Assert.NotNull(content);
+            ClassicAssert.NotNull(content);
         }
 
         [Test]
@@ -46,11 +47,11 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
             var clientScopes = content.Configurator.ClientScopes;
 
             //than
-            Assert.NotNull(configuration);
-            Assert.NotNull(manager);
-            Assert.NotNull(groups);
-            Assert.NotNull(clients);
-            Assert.NotNull(clientScopes);
+            ClassicAssert.NotNull(configuration);
+            ClassicAssert.NotNull(manager);
+            ClassicAssert.NotNull(groups);
+            ClassicAssert.NotNull(clients);
+            ClassicAssert.NotNull(clientScopes);
         }
     }
 }
