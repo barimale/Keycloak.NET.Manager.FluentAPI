@@ -2,9 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
 	<metadata>
 		<id>Keycloak.NET.Manager.FluentAPI</id>
-		<version>1.0.0</version>
+		<version>1.0.0.1</version>
 		<authors>barimale</authors>
 		<owners>barimale</owners>
+		<readme>docs\README.md</readme>
+		<projectUrl>https://github.com/barimale/Keycloak.NET.Manager.FluentAPI</projectUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>Fluent API for Keycloak.NET package, determined as a reflection of the Keycloak Administration Console website.</description>
 		<dependencies>
@@ -23,6 +25,7 @@
 		</dependencies>
 	</metadata>
 	<files>
+		<file src="..\README.md" target="docs\" />
 		<file src="Keycloak.NET.Manager.FluentAPI\bin\Release\netstandard2.0\Keycloak.NET.Manager.FluentAPI.dll" target="lib\netstandard2.0" />
 		<file src="Keycloak.NET.Manager.FluentAPI\bin\Release\net47\Keycloak.NET.Manager.FluentAPI.dll" target="lib\net47" />
 		<file src="Keycloak.NET.Manager.FluentAPI\bin\Release\net8.0\Keycloak.NET.Manager.FluentAPI.dll" target="lib\net8.0" />
