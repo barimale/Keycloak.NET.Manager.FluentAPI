@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
 	<metadata>
 		<id>Keycloak.NET.Manager.FluentAPI</id>
-		<version>1.0.0.1</version>
+		<version>1.0.0.2</version>
 		<authors>barimale</authors>
 		<owners>barimale</owners>
 		<readme>docs\README.md</readme>
@@ -11,16 +11,16 @@
 		<description>Fluent API for Keycloak.NET package, determined as a reflection of the Keycloak Administration Console website.</description>
 		<dependencies>
 			<group targetFramework=".NETFramework4.7">
-				<dependency id="Keycloak.Net" version="1.0.7"  exclude="Build,Analyzers"/>
-				<dependency id="Newtonsoft.Json" version="12.0.2"  exclude="Build,Analyzers"/>
+				<dependency id="Keycloak.Net" version="1.0.18"  exclude="Build,Analyzers"/>
+				<dependency id="Newtonsoft.Json" version="13.0.3"  exclude="Build,Analyzers"/>
 			</group>
 			<group targetFramework=".NETStandard2.0">
-				<dependency id="Keycloak.Net" version="1.0.7"  exclude="Build,Analyzers"/>
-				<dependency id="Newtonsoft.Json" version="12.0.2"  exclude="Build,Analyzers"/>
+				<dependency id="Keycloak.Net" version="1.0.18"  exclude="Build,Analyzers"/>
+				<dependency id="Newtonsoft.Json" version="13.0.3"  exclude="Build,Analyzers"/>
 			</group>
 			<group targetFramework="net8.0">
-				<dependency id="Keycloak.Net" version="1.0.7"  exclude="Build,Analyzers"/>
-				<dependency id="Newtonsoft.Json" version="12.0.2"  exclude="Build,Analyzers"/>
+				<dependency id="Keycloak.Net" version="1.0.18"  exclude="Build,Analyzers"/>
+				<dependency id="Newtonsoft.Json" version="13.0.3"  exclude="Build,Analyzers"/>
 			</group>
 		</dependencies>
 	</metadata>
