@@ -45,6 +45,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
             var groups = content.Manager.Groups;
             var clients = content.Configurator.Clients;
             var clientScopes = content.Configurator.ClientScopes;
+            var identityProviders = content.Configurator.IdentityProviders;
 
             //than
             ClassicAssert.NotNull(configuration);
@@ -52,6 +53,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
             ClassicAssert.NotNull(groups);
             ClassicAssert.NotNull(clients);
             ClassicAssert.NotNull(clientScopes);
+            ClassicAssert.NotNull(identityProviders);
         }
     }
 }
