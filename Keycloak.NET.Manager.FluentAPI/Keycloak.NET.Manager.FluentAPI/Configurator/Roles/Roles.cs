@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Keycloak.NET.FluentAPI.Configure
 {
-    internal class Role : IRoles
+    internal class Roles : IRoles
     {
         private readonly IRealmContext _context;
         private readonly KeycloakClient _client;
 
-        public Role(IRealmContext context)
+        public Roles(IRealmContext context)
         {
             _context = context;
             _client = context.Client;
