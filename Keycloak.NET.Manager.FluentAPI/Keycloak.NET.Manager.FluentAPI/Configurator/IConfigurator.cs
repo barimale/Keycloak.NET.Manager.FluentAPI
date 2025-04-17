@@ -1,4 +1,6 @@
-﻿namespace Keycloak.NET.FluentAPI.Configure
+﻿using Keycloak.NET.Manager.FluentAPI.Configurator.IdentityProviders;
+
+namespace Keycloak.NET.FluentAPI.Configure
 {
     public interface IConfigurator
     {

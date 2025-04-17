@@ -34,6 +34,8 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
                     .ToRealm(InputData.Realm)
                     .ToClientName(InputData.ClientId);
 
+            context.Configurator.IdentityProviders.
+
             //than
             ClassicAssert.NotNull(context);
             ClassicAssert.NotNull(context.ConnectionSettings.ClientName);

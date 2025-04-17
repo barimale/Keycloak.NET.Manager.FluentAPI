@@ -1,5 +1,6 @@
 ﻿using Keycloak.NET.FluentAPI.Configure;
 using Keycloak.NET.Manager.FluentAPI;
+using Keycloak.NET.Manager.FluentAPI.Configurator.IdentityProviders;
 
 namespace Keycloak.NET.FluentAPI
 {
@@ -16,7 +17,7 @@ namespace Keycloak.NET.FluentAPI
         public IClientScopes ClientScopes => new ClientScope(_context);
         public IRoles Roles => new Roles(_context);
 
-        public IIdentityProviders IdentityProviders => throw new System.NotImplementedException();
+        public IIdentityProviders IdentityProviders => new IdentityProviders(_context);
         public IRealmSettings RealmSettings => throw new System.NotImplementedException();
         public IUserFederation UserFederation => throw new System.NotImplementedException();
         public IAuthentication Authentication => throw new System.NotImplementedException();
