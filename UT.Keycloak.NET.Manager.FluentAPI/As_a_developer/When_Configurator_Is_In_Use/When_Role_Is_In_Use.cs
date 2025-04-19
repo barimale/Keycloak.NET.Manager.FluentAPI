@@ -11,7 +11,6 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
     public class When_Role_Is_In_Use
     {
         private RealmContext context;
-        private string ClientName = Guid.NewGuid().ToString();
 
         [OneTimeSetUp]
         public void Setup()
