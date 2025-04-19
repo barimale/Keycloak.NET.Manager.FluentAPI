@@ -1,4 +1,5 @@
 # Keycloak.NET.Manager.FluentAPI
+## Keycloak 6.x
 ## 1. Context builder examples:
 
 ```
