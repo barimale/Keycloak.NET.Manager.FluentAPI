@@ -27,7 +27,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             //when
             var result = await context.Manager.Sessions.RealmSessions.LogoutAllAsync();
 
-            //than
+            //then
             ClassicAssert.IsTrue(result);
         }
 
@@ -44,7 +44,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             //when
             var result = await context.Manager.Sessions.Revocation.SetToNowAndPushAsync();
 
-            //than
+            //then
             ClassicAssert.NotNull(result);
         }
     }

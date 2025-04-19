@@ -25,18 +25,19 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
         [OneTimeTearDown]
         public void CleanUp()
         {
-            //context.Client.DeleteClientAsync(InputData.Realm, ClientName);
+            // intentionally left blank
         }
 
         [Test]
         public async Task I_d_like_to_add_new_role_to_specific_client()
         {
             //given
+            // context
 
             //when
             var result = await context.Configurator.Roles.AddRoleAsync(Guid.NewGuid().ToString("n"));
 
-            //than
+            //then
             ClassicAssert.IsTrue(result);
         }
 
@@ -56,7 +57,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
             //when
             var result = await context.Configurator.Roles.DeleteRoleAsync(newName);
 
-            //than
+            //then
             ClassicAssert.IsTrue(result);
         }
 
@@ -76,7 +77,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
             //when
             var result = context.Configurator.Roles.GetRoleById(newOne.Id);
 
-            //than
+            //then
             ClassicAssert.IsNotNull(result);
         }
     }

@@ -31,7 +31,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             //when
             var result = await context.Manager.Import.ImportAsync(realm);
 
-            //than
+            //then
             ClassicAssert.IsTrue(result);
         }
 
@@ -51,7 +51,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             //when
             var result = await context.Manager.Import.ImportAsync(inputFile);
 
-            //than
+            //then
             ClassicAssert.IsTrue(result);
         }
     }

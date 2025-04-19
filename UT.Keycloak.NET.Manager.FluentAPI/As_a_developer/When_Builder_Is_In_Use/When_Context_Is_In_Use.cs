@@ -24,7 +24,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
                 .Endpoint(InputData.Endpoint)
                 .AllRealms();
 
-            //than
+            //then
             ClassicAssert.NotNull(context);
         }
 
@@ -40,7 +40,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
             //when
             var realm = context.Realm;
 
-            //than
+            //then
             ClassicAssert.NotNull(realm);
         }
     }

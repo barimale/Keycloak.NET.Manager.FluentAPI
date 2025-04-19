@@ -25,7 +25,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
                 .ToRealm(InputData.Realm)
                 .ToClientName(InputData.ClientId);
 
-            //than
+            //then
             ClassicAssert.NotNull(content);
         }
 
@@ -47,7 +47,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Builder_Is_In_Us
             var clientScopes = content.Configurator.ClientScopes;
             var identityProviders = content.Configurator.IdentityProviders;
 
-            //than
+            //then
             ClassicAssert.NotNull(configuration);
             ClassicAssert.NotNull(manager);
             ClassicAssert.NotNull(groups);

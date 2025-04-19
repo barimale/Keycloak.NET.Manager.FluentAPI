@@ -28,7 +28,7 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Manager_Is_In_Us
             //when
             var result = await context.Configurator.Clients.GetDefaultClientRolesNamesAsync();
 
-            //than
+            //then
             ClassicAssert.NotNull(result);
             ClassicAssert.Greater(result.ToList().Count, 0);
         }
