@@ -55,9 +55,11 @@ namespace UT.Keycloak.NET.Manager.FluentAPI.As_a_developer.When_Configurator_Is_
             var clientId = "123s";
 
             //when
-            await clients.Create(clientId, Protocol.OPENID_CONNECT);
+            var result = await clients.Create(clientId, Protocol.OPENID_CONNECT);
 
-            //than
+            //then
+            ClassicAssert.Equals(result, true);
+
         }
     }
 }
