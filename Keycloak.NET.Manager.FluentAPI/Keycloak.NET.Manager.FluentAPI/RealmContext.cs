@@ -1,9 +1,8 @@
 ﻿using Keycloak.Net.Models.Users;
-using Keycloak.NET.FluentAPI;
 using Keycloak.NET.FluentAPI.Base;
 using Keycloak.NET.FluentAPI.Builder;
-using Keycloak.NET.FluentAPI.Configure;
 using Keycloak.NET.FluentAPI.Manage;
+using Keycloak.NET.Manager.FluentAPI.Configurator;
 using System.Linq;
 
 namespace Keycloak.NET.Manager.FluentAPI
@@ -17,7 +16,7 @@ namespace Keycloak.NET.Manager.FluentAPI
         }
 
         public IManager Manager => new NET.FluentAPI.Manage.Manager(this);
-        public IConfigurator Configurator => new Configurator(this);
+        public IConfigurator Configurator => new Configurator.Configurator(this);
 
         private User userDetails;
         public User UserDetails

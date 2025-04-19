@@ -1,7 +1,7 @@
 ﻿using Keycloak.Net.Models.Users;
 using Keycloak.NET.FluentAPI.Base;
-using Keycloak.NET.FluentAPI.Configure;
 using Keycloak.NET.FluentAPI.Manage;
+using Keycloak.NET.Manager.FluentAPI.Configurator;
 
 namespace Keycloak.NET.Manager.FluentAPI
 {

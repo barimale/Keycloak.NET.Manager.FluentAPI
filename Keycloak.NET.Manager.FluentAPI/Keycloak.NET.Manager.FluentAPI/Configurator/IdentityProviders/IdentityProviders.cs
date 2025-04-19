@@ -1,11 +1,10 @@
 ﻿using Keycloak.Net;
 using Keycloak.Net.Models.IdentityProviders;
 using Keycloak.NET.Manager.FluentAPI;
-using Keycloak.NET.Manager.FluentAPI.Configurator.IdentityProviders;
 using System;
 using System.Threading.Tasks;
 
-namespace Keycloak.NET.FluentAPI.Configure
+namespace Keycloak.NET.Manager.FluentAPI.Configurator
 {
     internal class IdentityProviders : IIdentityProviders
     {

@@ -1,6 +1,6 @@
-﻿using Keycloak.NET.Manager.FluentAPI.Configurator.IdentityProviders;
+﻿using Keycloak.NET.FluentAPI.Configure;
 
-namespace Keycloak.NET.FluentAPI.Configure
+namespace Keycloak.NET.Manager.FluentAPI.Configurator
 {
     public interface IConfigurator
     {
@@ -8,6 +8,6 @@ namespace Keycloak.NET.FluentAPI.Configure
         IClientScopes ClientScopes { get; }
         IRoles Roles { get; }
         IIdentityProviders IdentityProviders { get; }
-        IRealmSettings RealmSettings { get; }
+        IAuthentication Authentication { get; }
     }
 }
